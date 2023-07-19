@@ -12,4 +12,4 @@ There will be 3 models: Student, Teacher, and Report_card
 - Student <-> Teacher is a many to many relationship.
 
 - Students can see their report cards.
-- Teachers can see, edit, and delete their report cards.
+- Teachers can see, edit, delete, and add new report cards.
