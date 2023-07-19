@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     for _ in range(50):
         student = Student(
-            name = faker.name()
+            name = f"{faker.first_name()} {faker.last_name()}"
         )
 
         session.add(student)
@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     for _ in range(20):
         teacher = Teacher(
-            name = faker.name(),
+            name = f"{faker.first_name()} {faker.last_name()}",
             course = random.choice(courses)
         )
 

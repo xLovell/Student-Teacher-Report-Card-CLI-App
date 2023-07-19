@@ -139,9 +139,9 @@ def teacher_report_cards_edit(teacher):
         Enter: '''))
             print("")
             if edit == 1:
-                edit_grade(report_card)
+                edit_grade(report_card, teacher)
             elif edit == 2:
-                edit_feedback(report_card)
+                edit_feedback(report_card, teacher)
             elif edit == 0:
                 print("Bye! Thanks for using my app!")
             else:
@@ -156,7 +156,7 @@ def teacher_report_cards_edit(teacher):
         time.sleep(2)
         main_menu()
 
-def edit_grade(report_card):
+def edit_grade(report_card, teacher):
     previous_grade = report_card.grade
     grades = ["A", "a", "B", "b", "C", "c", "D", "d", "F", "f"]
     new_grade = input("Enter new grade: ")
@@ -164,17 +164,21 @@ def edit_grade(report_card):
         report_card.grade = new_grade
         session.commit()
         print(f"Updated grade from {previous_grade} to {new_grade}")
+        time.sleep(1)
+        teacher_menu(teacher)
     else:
         print("Invalid grade - Please re-enter")
         edit_grade(report_card)
 
 
-def edit_feedback(report_card):
+def edit_feedback(report_card, teacher):
     new_feedback = input(str("Enter new feedback: "))
     if new_feedback:
         report_card.feedback = new_feedback
         session.commit()
         print(f'Updated feedback to: "{new_feedback}"')
+        time.sleep(1)
+        teacher_menu(teacher)
     else:
         print("Invalid input - Please re-enter")
         edit_feedback(report_card)
