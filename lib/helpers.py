@@ -118,8 +118,13 @@ def teacher_report_cards(teacher):
         print("")
         print(teacher_report_card_table(teacher_report_list))
         print("")
+        time.sleep(2)
+        teacher_menu(teacher)
     else:
         print("You have not yet created any report cards.")
+        print("")
+        time.sleep(2)
+        teacher_menu(teacher)
 
 def teacher_report_cards_edit(teacher):
     teacher_report_list = session.query(Report_card).filter_by(teacher_id=teacher.id).all()
